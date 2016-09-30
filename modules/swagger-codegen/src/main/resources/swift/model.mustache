@@ -10,6 +10,10 @@ import Foundation
 {{#description}}
 
 /** {{description}} */{{/description}}
+{{#isArrayModel}}
+public typealias {{classname}} = [{{arrayModelType}}]
+{{/isArrayModel}}
+{{^isArrayModel}}
 open class {{classname}}: JSONEncodable {
 {{#vars}}
 {{#isEnum}}
@@ -52,5 +56,7 @@ open class {{classname}}: JSONEncodable {
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
-}{{/model}}
+}
+{{/isArrayModel}}
+{{/model}}
 {{/models}}
