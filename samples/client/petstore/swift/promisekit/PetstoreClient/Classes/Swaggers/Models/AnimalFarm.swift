@@ -8,14 +8,4 @@
 import Foundation
 
 
-open class AnimalFarm: JSONEncodable {
-
-    public init() {}
-
-    // MARK: JSONEncodable
-    func encodeToJSON() -> Any {
-        var nillableDictionary = [String:Any?]()
-        let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
-        return dictionary
-    }
-}
+public typealias AnimalFarm = [Animal]
